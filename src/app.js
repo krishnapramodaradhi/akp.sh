@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const helmet = require('helmet');
+const csp = require('helmet-csp');
 const { connect } = require('mongoose');
 
 const urlRoutes = require('./url');
@@ -9,16 +10,20 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(helmet());
+app.use(
+  csp({
+    directives: {
+      defaultSrc: [`'self'`],
+      scriptSrc: [`'self'`],
+      connectSrc: [`http:`, `https:`],
+      styleSrc: [`'self'`, `fonts.googleapis.com`],
+      fontSrc: [`fonts.gstatic.com`],
+      imgSrc: [`'self'`, `i.imgur.com`],
+    },
+  })
+);
 app.use(express.json());
 app.use(express.static('public'));
-
-app.use((req, res, next) => {
-  res.header(
-    'Content-Security-Policy',
-    "default-src none; connect-src http: https:; script-src 'self'"
-  );
-  next();
-});
 
 app.use(urlRoutes);
 
