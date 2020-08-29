@@ -1,0 +1,32 @@
+{
+  "name": "akpsh",
+  "version": "1.0.0",
+  "description": "This is a URL shortner application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krishnapramodaradhi/akpsh.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/krishnapramodaradhi/akpsh/issues"
+  },
+  "homepage": "https://github.com/krishnapramodaradhi/akpsh#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.6.1",
+    "helmet": "^4.1.0",
+    "mongoose": "^5.10.2",
+    "nanoid": "^3.1.12"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
