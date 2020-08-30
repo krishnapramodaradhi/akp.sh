@@ -23,7 +23,7 @@ app.use(
   })
 );
 app.use((req, res, next) => {
-  res.header('Set-Cookie', 'Secure;SameSite=None');
+  res.header('Set-Cookie', 'Secure;SameSite=Strict');
   next();
 });
 app.use(express.json());
