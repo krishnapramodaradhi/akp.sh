@@ -85,6 +85,7 @@ button:disabled {
   color: #ffffff;
   box-shadow: 4px 4px 4px 0 #00000033;
   font-size: 0.8rem;
+  transition: 0.3s ease-in;
 }
 
 .shortLink {
