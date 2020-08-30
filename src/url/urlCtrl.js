@@ -1,4 +1,5 @@
 const { nanoid } = require('nanoid');
+const { resolve } = require('path');
 
 const Url = require('./urlModel');
 const { validationResult } = require('express-validator');
@@ -20,6 +21,20 @@ exports.createShortUrl = async function (req, res, next) {
       slug: slug || nanoid(7).toLowerCase(),
     }).save();
     res.json(newUrl);
+  } catch (error) {
+    next(error);
+  }
+};
+
+exports.redirectLink = async function (req, res, next) {
+  try {
+    const url = await Url.findOne({ slug: req.params.id });
+    if (!url) {
+      return res.sendFile(
+        resolve(`${__dirname}`, '..', '..', 'public/404.html')
+      );
+    }
+    res.redirect(url.url);
   } catch (error) {
     next(error);
   }

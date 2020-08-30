@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { check } = require('express-validator');
 
-const { createShortUrl } = require('./urlCtrl');
+const { createShortUrl, redirectLink } = require('./urlCtrl');
 
 router.post(
   '/url',
@@ -14,5 +14,7 @@ router.post(
   ],
   createShortUrl
 );
+
+router.get('/:id', redirectLink);
 
 module.exports = router;

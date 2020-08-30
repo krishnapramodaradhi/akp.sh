@@ -98,3 +98,7 @@ button:disabled {
   margin-right: 0.5rem;
   cursor: pointer;
 }
+
+.not-found {
+  color: #eb3f3f;
+}
