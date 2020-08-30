@@ -54,5 +54,47 @@ button {
 
 button:focus,
 button:hover {
-  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.2);
+  outline: none;
+  box-shadow: 2px 2px 5px 0 #eb3f3f33;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  background-color: #6d1b1b;
+  border: none;
+}
+
+.error {
+  width: 14rem;
+  padding: 0.635rem;
+  margin: 1rem;
+  background-color: #eb3f3f;
+  color: #ffffff;
+  transition: 0.3s ease-in;
+}
+
+.error-rm,
+.success-rm {
+  transition: 0.3s ease-out;
+}
+
+.success {
+  padding: 1rem;
+  margin: 2rem;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  box-shadow: 4px 4px 4px 0 #00000033;
+  font-size: 0.8rem;
+}
+
+.shortLink {
+  text-decoration: none;
+  color: #eb3f3f;
+}
+
+.close {
+  font-weight: bold;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
 }

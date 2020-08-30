@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://i.imgur.com/N5upjIT.png" type="image/png" />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
       rel="stylesheet"
@@ -15,7 +16,8 @@
       <img src="https://i.imgur.com/kZVOBOe.png" class="logo" alt="akp.sh" />
     </header>
     <main>
-      <form class="form" id="linkForm">
+      <div id="errorMsg"></div>
+      <form class="form" id="shortLinkForm">
         <input
           type="text"
           class="input"
@@ -32,8 +34,9 @@
           placeholder="Enter a Slug"
           autocomplete="off"
         />
-        <button type="submit">Shorten Link</button>
+        <button type="submit" id="submitBtn">Shorten Link</button>
       </form>
+      <div id="success"></div>
     </main>
     <script type="module" src="app.js"></script>
   </body>

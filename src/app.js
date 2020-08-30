@@ -22,6 +22,10 @@ app.use(
     },
   })
 );
+app.use((req, res, next) => {
+  res.header('Set-Cookie', 'Secure;SameSite=None');
+  next();
+});
 app.use(express.json());
 app.use(express.static('public'));
 
