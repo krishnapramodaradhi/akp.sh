@@ -3,11 +3,12 @@ const errorMsg = document.querySelector('#errorMsg');
 const successMsg = document.querySelector('#success');
 const submitBtn = document.querySelector('#submitBtn');
 
-form.addEventListener('submit', async (event) => {
+form.onsubmit = async function (event) {
   event.preventDefault();
   const { url, slug } = event.target;
   try {
     submitBtn.disabled = true;
+    submitBtn.innerHTML = 'Generating';
     if (!url.value || !url.value.match(/^(https?):\/\/[^\s$.?#].[^\s]*$/gm)) {
       return handleError('Please provide a valid URL');
     }
@@ -40,7 +41,7 @@ form.addEventListener('submit', async (event) => {
       return handleError(message);
     }
     successMsg.innerHTML = `Shortened Link - 
-    <a class="shortLink" href=${window.location.protocol}//${window.location.host}/${actualResponse.slug}>${window.location.protocol}//${window.location.host}/${actualResponse.slug}</a>`;
+    <a class="shortLink" target="_blank" href=${window.location.protocol}//${window.location.host}/${actualResponse.slug}>${window.location.protocol}//${window.location.host}/${actualResponse.slug}</a>`;
     const span = document.createElement('span');
     successMsg.appendChild(span);
     span.innerHTML = 'X';
@@ -56,8 +57,9 @@ form.addEventListener('submit', async (event) => {
     url.value = '';
     slug.value = '';
     submitBtn.disabled = false;
+    submitBtn.innerHTML = 'Shorten Link';
   }
-});
+};
 
 function handleError(message) {
   errorMsg.innerHTML = message;

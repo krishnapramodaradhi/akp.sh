@@ -18,14 +18,10 @@ app.use(
       connectSrc: [`http:`, `https:`],
       styleSrc: [`'self'`, `fonts.googleapis.com`],
       fontSrc: [`fonts.gstatic.com`],
-      imgSrc: [`'self'`, `i.imgur.com`],
+      imgSrc: [`'self'`, `i.ibb.co`],
     },
   })
 );
-app.use((req, res, next) => {
-  res.header('Set-Cookie', 'Secure;SameSite=None');
-  next();
-});
 app.use(express.json());
 app.use(express.static('public'));
 

@@ -50,6 +50,7 @@ button {
   color: #ffffff;
   padding: 0.635rem;
   font-size: 1rem;
+  cursor: pointer;
 }
 
 button:focus,
@@ -70,7 +71,7 @@ button:disabled {
   margin: 1rem;
   background-color: #eb3f3f;
   color: #ffffff;
-  transition: 0.3s ease-in;
+  animation: animate 0.5s linear;
 }
 
 .error-rm,
@@ -85,7 +86,16 @@ button:disabled {
   color: #ffffff;
   box-shadow: 4px 4px 4px 0 #00000033;
   font-size: 0.8rem;
-  transition: 0.3s ease-in;
+  animation: animate 0.5s linear;
+}
+
+@keyframes animate {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .shortLink {
